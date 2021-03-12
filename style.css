@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    background-color: #212529;
+    max-width: 100vw;
+    width: 100%;
+    height: 100vh;
+}
+
+.row .search-results{
+    height: 100vh;
+    background-color: #23272c;
+    box-shadow: 0px 1px 5px 1px #1c1d20;
+}
+
+.input-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input-group > .form-control {
+    border: solid 2px #212529
+}
+
+.input-group > .btn {
+    border-radius: 0px;
+    border: solid 2px #212529
+}
+
+.input-group > .btn-outline-primary {
+    color: #fff;
+    background-color: #212529;
+    box-shadow: 0px 1px 5px 1px #1c1d20;
+}
+
+.input-group >.btn-outline-primary:hover {
+    background-color: #212529;
+    color: #ffff;
+}
+
+.dashboard {
+    padding: 10px;
+}
+
+.dash-cards {
+    margin: 0 auto;
+    width: 80%;
+    background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*BootStrap Queries - Giving me problems on full screen */
+@media screen and (min-width: 1200px) {
+	.container {
+		max-width: 1200px;
+	}
+}
+@media screen and (min-width: 992px){
+	.container {
+		max-width: 992px;
+	}
+}
+@media screen and (min-width: 768px) {
+	.container {
+		max-width: 768px;
+	}
+}
+@media screen and (min-width: 576px){
+	.container {
+		max-width: 576px;
+	}
+}
