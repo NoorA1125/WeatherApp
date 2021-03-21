@@ -5,32 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3 search-results">
-                <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Search" aria-label="Search"
-                        aria-describedby="search-addon" />
-                    <button type="button" class="btn btn-outline-primary">Search</button>
+    <!--Beginning of navigation-->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div id="navMenu" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item">
+                            Weather Dashboard App
+                        </a>
+                    </div>
+
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-outlined is-dark">Github</a>
+                                <a class="button is-outlined is-link">Download CV</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-9 dashboard">
-                 <div class="dash-cards">
-                    <div>
-                        <h5>Temperature</h5>
-                        <h5>Humidity</h5>
-                        <h5>Windspeed</h5>
-                        <h5>UV Index</h5>
-                    </div>
-                 </div>
+        </nav>
+    </header>
+    <!--End of the navigation-->
+
+    <section class="hero is-link is-fullheight-with-navbar">
+        <div class="hero-body">
+            <!--Search Container-->
+            <div class="search-container">
+                <input class="input is-normal form-control" type="search" id="searchCity" placeholder="Search a City" aria-label="Search" aria-describedby="search-addon">
+                <button type="button" class="button search-city btn btn-outline-primary" id="primary-btn">Search City</button>
             </div>
         </div>
-    </div>
+            <div class="container">
+                <!-- <div class="search-results">
+                    <div id="searchHistory">
+
+                    </div>
+                </div> -->
+                <div class="dashboard">
+                    <div class="dash-cards">
+                        <div id="weather-stats">
+                            <div class="column">
+                                <h6>Temp: </h6><br>
+                                <h1 class="large-font" id="temp"></h1>
+
+                            </div>
+                            <div class="column is-3">
+                                <h6>Humidity:</h6><br>
+                                <h1 class="large-font" id="humi"></h1>
+                            </div>
+                            <div class="column is-3">
+                                <h6>Windspeed:</h6> <br>
+                                <h1 class="large-font" id="wind"></h1>
+                            </div>
+                            <div class="column is-3">
+                                <h6>UV Index:</h6><br>
+                                <h1 class="large-font" id="uvin"></h1>
+                            </div>
+                        </div>
+                        <button type="button" id="clearAll" class="button btn is-outlined is-danger"
+                            style="display: none;">
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+                <div class="container weekly-forcast" id="weekly-forcast">
+                    <div class="columns">
+                        <div class="column weekday">
+                            <h4 id="date"></h4>
+                            <img id="icons" src="" alt="weekly forecast">
+                            <h1 id="temper"></h1>
+                        </div>
+                        <div class="column weekday">
+                            <h4 id="date"></h4>
+                            <img id="icons" src="" alt="weekly forecast">
+                            <h1 id="temper"></h1>
+                        </div>
+                        <div class="column weekday">
+                            <h4 id="date"></h4>
+                            <img id="icons" src="" alt="weekly forecast">
+                            <h1 id="temper"></h1>
+                        </div>
+                        <div class="column weekday">
+                            <h4 id="date"></h4>
+                            <img id="icons" src="" alt="weekly forecast">
+                            <h1 id="temper"></h1>
+                        </div>
+                        <div class="column weekday">
+                            <h4 id="date"></h4>
+                            <img id="icons" src="" alt="weekly forecast">
+                            <h1 id="temper"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
