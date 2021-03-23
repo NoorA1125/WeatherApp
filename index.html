@@ -38,6 +38,7 @@
         <div class="hero-body">
             <!--Search Container-->
             <div class="search-container">
+                <button type="button" id="clearAll" class="button btn is-outlined is-danger">Clear All</button>
                 <input class="input is-normal form-control" type="search" id="searchCity" placeholder="Search a City" aria-label="Search" aria-describedby="search-addon">
                 <button type="button" class="button search-city btn btn-outline-primary" id="primary-btn">Search City</button>
             </div>
@@ -65,45 +66,23 @@
                                 <h1 class="large-font" id="wind"></h1>
                             </div>
                             <div class="column is-3">
-                                <h6>UV Index:</h6><br>
+                                <h6>UV:</h6><br>
                                 <h1 class="large-font" id="uvin"></h1>
                             </div>
                         </div>
-                        <button type="button" id="clearAll" class="button btn is-outlined is-danger"
-                            style="display: none;">
-                            Clear All
-                        </button>
+                       
                     </div>
                 </div>
-                <div class="container weekly-forcast" id="weekly-forcast">
-                    <div class="columns">
-                        <div class="column weekday">
-                            <h4 id="date"></h4>
-                            <img id="icons" src="" alt="weekly forecast">
-                            <h1 id="temper"></h1>
-                        </div>
-                        <div class="column weekday">
-                            <h4 id="date"></h4>
-                            <img id="icons" src="" alt="weekly forecast">
-                            <h1 id="temper"></h1>
-                        </div>
-                        <div class="column weekday">
-                            <h4 id="date"></h4>
-                            <img id="icons" src="" alt="weekly forecast">
-                            <h1 id="temper"></h1>
-                        </div>
-                        <div class="column weekday">
-                            <h4 id="date"></h4>
-                            <img id="icons" src="" alt="weekly forecast">
-                            <h1 id="temper"></h1>
-                        </div>
-                        <div class="column weekday">
-                            <h4 id="date"></h4>
-                            <img id="icons" src="" alt="weekly forecast">
-                            <h1 id="temper"></h1>
-                        </div>
+                <div class="container">
+                    <div class="columns" id="weekly-forcast">
+                        <!-- <div class="column weekday">
+                            <h4 id="date" class="date"></h4>
+                            <img id="icons" class="icons" src="" alt="weekly forecast">
+                            <h1 id="temper" class="temper"></h1>
+                        </div> -->
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>

@@ -26,6 +26,7 @@ again presented with current and future conditions for that city
 var api_key = "48ecd08b6bb6fbb7907ac16ed1599f7f";
 var city = "";
 var cityArray = [];
+var citySearches = [];
 var searchButton = document.querySelector("#primary-btn");
 var searchCity = document.querySelector("#searchCity");
 var currentCity = document.querySelector("#currentCity");
@@ -34,6 +35,7 @@ var temp = document.querySelector("#temp");
 var humidity = document.querySelector("#humi");
 var windSpeed = document.querySelector("#wind");
 var uvIndex = document.querySelector("#uvin");
+var forecastDiv = document.querySelector("#weekly-forcast")
 
 //1) search for a city to see if it exists
 function findCity(c) {
@@ -56,6 +58,9 @@ function showWeather(event) {
         getcurrentWeather(city);
         console.log(city);
     }
+
+    //Save searches
+    citySearches.push(searchCity.value);
 }
 
 function getcurrentWeather(city) {
@@ -79,46 +84,51 @@ function getcurrentWeather(city) {
             console.log(longitude);
             weeklyForecast();
         });
-
-    // fetch(oneCallURL)
-    //     .then((response) => response.json())
-    //     .then(function (data) {
-    //         var mainCard = document.createElement("div");
-    //         mainCard.classList.add("mainCard");
-
-    //         var cityName = document.createElement("h2");
-    //         cityName.textContent = city + "-" + new Date().toDateString();
-    //         mainCard.append(cityName);
-    //     })
-
 };
 
 //5 Day forecast
 function weeklyForecast(city) {
     // var city = searchCity.value
     var dayover = true;
-    var weeklyDate = document.querySelector("#date");
-    var weeklyTemp = document.querySelector("#temper");
-    var weedlyIcons = document.querySelector("#icons");
     var weekCity = searchCity.value;
     var forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${weekCity}&appid=${api_key}`;
 
     fetch(forecastURL)
         .then((response) => response.json())
         .then(data => {
-            for (let i = 1; i < 6; i++) {
-                var iconCode = data.list[i].weather['0'].icon;
-                weeklyDate = weeklyDate.innerHTML = new Date((data.list[i].dt_txt)).toLocaleDateString()
-                console.log(weeklyDate);
-                var iconURL = `https://openweathermap.org/img/wn/${iconCode}.png`;
-                weedlyIcons = weedlyIcons.src = iconURL;
-                console.log(data);
-                weeklyTemp = weeklyTemp.innerHTML = Math.floor(((data.list[i].main.temp - 273.15) * 1.80 + 32)) + " ℉";
-                console.log(weeklyTemp);
+            //for each -> do something
+            console.log(data)
 
+            for (let i = 4; i < data.list.length; i+=8) { 
+              const currentIndex = data.list[i];  
+              const forecastCard = document.createElement('div')
+              forecastCard.classList.add("column");
+
+              const dayEl = document.createElement('h1');
+              dayEl.textContent = new Date((currentIndex.dt_txt)).toLocaleDateString();
+              dayEl.classList.add("date");
+              forecastCard.append(dayEl);
+
+              const iconEl = document.createElement('img');
+              iconEl.src = `https://openweathermap.org/img/wn/${currentIndex.weather[0].icon}.png`;
+              iconEl.classList.add("icons");
+              forecastCard.append(iconEl);
+
+              const tempEl = document.createElement('h1');
+              tempEl.textContent = Math.floor(((currentIndex.main.temp - 273.15) * 1.80 + 32)) + " ℉";
+              tempEl.classList.add("temper");
+              forecastCard.append(tempEl);
+
+              const humiEl = document.createElement('h4');
+              humiEl.textContent = "H: " + Math.floor(currentIndex.main.humidity) + "%";
+              humiEl.classList.add("temper");
+              forecastCard.append(humiEl);
+
+
+             forecastDiv.append(forecastCard);   
             }
-        })
-}
+        });
+};
 
 //Clears the search History
 function clearSearch(clear) {
@@ -130,9 +140,4 @@ function clearSearch(clear) {
 }
 searchButton.addEventListener("click", showWeather);
 clearButton.addEventListener("click", clearSearch);
-
-/*5 Day forecast */
-//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-
-//lat - longitude (One Call)
 
