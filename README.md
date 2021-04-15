@@ -1,7 +1,7 @@
 # # Weather App
 
 Click on the following link to get to the application:
-* [Weather App](https://noora1125.github.io/password/)
+* [Weather App](https://noora1125.github.io/WeatherApp/)
 
 The following images demonstrates the application functionality:
 ![password generator demo](./images/web1.png)
